@@ -1,4 +1,5 @@
 /* 옵션 설정 */
+
 const tasks = [
    {
       id: 'task1', // 고유 작업 ID (dependencies 연결 시 필요)
@@ -6,7 +7,7 @@ const tasks = [
       start: '2025-06-10', // 시작일 (형식: YYYY-MM-DD)
       end: '2025-06-12', // 종료일 (형식: YYYY-MM-DD)
       progress: 50, // 작업 진행률 (0~100%)
-      dependencies: '', //앞선 작업 ID (작업 순서 연결용)
+      dependencies: '', //앞선 작업 ID (작업 순서 연결용) 여러개 연결하고 싶으면 쉼표(,)로 연결
    },
    {
       id: 'task2',
