@@ -583,6 +583,7 @@
                innerHTML: this.task.name,
                class: 'bar-label',
                append_to: this.bar_group,
+               'text-anchor': 'start',
             }),
             requestAnimationFrame(() => this.update_label_position());
       }
@@ -902,28 +903,45 @@
             ));
       }
       update_label_position() {
+         // const t = this.bar_group.querySelector('.img_mask') || '',
+         //    e = this.$bar,
+         //    i = this.group.querySelector('.bar-label'),
+         //    s = this.group.querySelector('.bar-img');
+         // let r = 5,
+         //    a = this.image_size + 10;
+         // const o = i.getBBox().width,
+         //    h = e.getWidth();
+         // o > h
+         //    ? (i.classList.add('big'),
+         //      s
+         //         ? (s.setAttribute('x', e.getEndX() + r),
+         //           t.setAttribute('x', e.getEndX() + r),
+         //           i.setAttribute('x', e.getEndX() + a))
+         //         : i.setAttribute('x', e.getEndX() + r))
+         //    : (i.classList.remove('big'),
+         //      s
+         //         ? (s.setAttribute('x', e.getX() + r),
+         //           t.setAttribute('x', e.getX() + r),
+         //           i.setAttribute('x', e.getX() + h / 2 + a))
+         //         : i.setAttribute('x', e.getX() + h / 2 - o / 2));
          const t = this.bar_group.querySelector('.img_mask') || '',
             e = this.$bar,
             i = this.group.querySelector('.bar-label'),
             s = this.group.querySelector('.bar-img');
-         let r = 5,
-            a = this.image_size + 10;
-         const o = i.getBBox().width,
-            h = e.getWidth();
-         o > h
-            ? (i.classList.add('big'),
-              s
-                 ? (s.setAttribute('x', e.getEndX() + r),
-                   t.setAttribute('x', e.getEndX() + r),
-                   i.setAttribute('x', e.getEndX() + a))
-                 : i.setAttribute('x', e.getEndX() + r))
-            : (i.classList.remove('big'),
-              s
-                 ? (s.setAttribute('x', e.getX() + r),
-                   t.setAttribute('x', e.getX() + r),
-                   i.setAttribute('x', e.getX() + h / 2 + a))
-                 : i.setAttribute('x', e.getX() + h / 2 - o / 2));
+
+         if (!i) return; // bar-label이 없으면 종료
+
+         const r = 5;
+         const a = this.image_size + 10;
+         const o = i.getBBox().width;
+         const h = e.getWidth();
+
+         const anchor = i.getAttribute('text-anchor') || 'middle';
+
+         i.setAttribute('x', e.getEndX() + 10); // 바 오른쪽
+         s?.setAttribute('x', e.getEndX() - r - (s?.getBBox().width || 0));
       }
+
       update_handle_position() {
          if (this.invalid || this.gantt.options.readonly) return;
          const t = this.$bar;
@@ -1650,14 +1668,14 @@
             this.config.column_width;
          (this.$current_highlight = this.create_el({
             top: this.config.header_height,
-            left: r - 9,
+            left: r + 2.5,
             height: this.grid_height - this.config.header_height,
             classes: 'current-highlight',
             append_to: this.$container,
          })),
             (this.$current_ball_highlight = this.create_el({
                top: this.config.header_height - 6,
-               left: r - 11.5,
+               left: r,
                width: 6,
                height: 6,
                classes: 'current-ball-highlight',

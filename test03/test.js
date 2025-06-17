@@ -13,110 +13,202 @@ function setChartDuration(year, month) {
 
    StartChartDate = start;
    EndChartDate = end;
-   console.log(StartChartDate, EndChartDate);
+   //console.log(StartChartDate, EndChartDate);
 }
 setChartDuration(currentYear, currentMonth);
 
 /* 옵션 설정 */
 const tasks = [
    {
-      id: 'task0--teamZ--blue',
+      id: 'task0',
       name: '이전날짜 테스트',
       start: '2025-05-20',
       end: '2025-05-21',
       progress: 100,
       dependencies: '',
+      type: 'sub',
+      group: 'teamZ',
+      style: 'blue',
       href: 'https://example.com/req',
    },
    {
-      id: 'task1--teamA--gray',
+      id: 'teamA',
+      name: 'Team A',
+      start: '2025-06-01',
+      end: '2025-06-05',
+      progress: 80,
+      dependencies: '',
+      type: 'main',
+      group: 'teamA',
+      style: 'gray',
+      href: '',
+   },
+   {
+      id: 'task1',
       name: '요구사항 수집',
       start: '2025-06-01',
       end: '2025-06-03',
       progress: 100,
       dependencies: '',
+      type: 'sub',
+      group: 'teamA',
+      style: 'red',
       href: 'https://example.com/req',
    },
    {
-      id: 'task2--teamA--gray',
+      id: 'task2',
       name: '설계 회의',
       start: '2025-06-03',
       end: '2025-06-05',
       progress: 60,
-      dependencies: 'task1--teamA--gray',
+      dependencies: 'task1',
+      type: 'sub',
+      group: 'teamA',
+      style: 'red',
       href: 'https://example.com/design',
    },
    {
-      id: 'task3--teamB--green',
+      id: 'teamB',
+      name: 'Team B',
+      start: '2025-06-06',
+      end: '2025-06-16',
+      progress: 80,
+      dependencies: '',
+      type: 'main',
+      group: 'teamB',
+      style: 'gray',
+      href: '',
+   },
+   {
+      id: 'task3',
       name: 'DB 설계',
       start: '2025-06-06',
       end: '2025-06-10',
       progress: 30,
       dependencies: '',
+      type: 'sub',
+      group: 'teamB',
+      style: 'green',
       href: 'https://example.com/db',
    },
    {
-      id: 'task5--teamC--green',
+      id: 'task5',
       name: '백엔드 개발',
       start: '2025-06-10',
       end: '2025-06-16',
       progress: 20,
-      dependencies: 'task3--teamB--green',
+      dependencies: 'task3',
+      type: 'sub',
+      group: 'teamB',
+      style: 'green',
       href: 'https://example.com/back',
    },
    {
-      id: 'task4--teamC--orange',
+      id: 'teamC',
+      name: 'Team C',
+      start: '2025-06-08',
+      end: '2025-06-22',
+      progress: 80,
+      dependencies: '',
+      type: 'main',
+      group: 'teamC',
+      style: 'gray',
+      href: '',
+   },
+   {
+      id: 'task4',
       name: '프론트엔드 개발',
       start: '2025-06-08',
       end: '2025-06-15',
       progress: 45,
       dependencies: '',
+      type: 'sub',
+      group: 'teamC',
+      style: 'orange',
       href: 'https://example.com/front',
    },
-
    {
-      id: 'task6--teamD--orange',
+      id: 'task6',
       name: 'API 연동',
       start: '2025-06-18',
       end: '2025-06-22',
       progress: 0,
-      dependencies: 'task4--teamC--orange',
+      dependencies: 'task4',
+      type: 'sub',
+      group: 'teamC',
+      style: 'orange',
       href: 'https://example.com/api',
    },
    {
-      id: 'task7--teamE--pink',
+      id: 'teamD',
+      name: 'Team B',
+      start: '2025-06-05',
+      end: '2025-06-08',
+      progress: 80,
+      dependencies: '',
+      type: 'main',
+      group: 'teamD',
+      style: 'gray',
+      href: '',
+   },
+   {
+      id: 'task7',
       name: '디자인 피드백',
       start: '2025-06-05',
       end: '2025-06-08',
       progress: 90,
       dependencies: '',
+      type: 'sub',
+      group: 'teamD',
+      style: 'pink',
       href: 'https://example.com/design-feedback',
    },
    {
-      id: 'task8--teamE--blue',
+      id: 'teamE',
+      name: 'Team E',
+      start: '2025-06-15',
+      end: '2025-06-29',
+      progress: 80,
+      dependencies: '',
+      type: 'main',
+      group: 'teamE',
+      style: 'gray',
+      href: '',
+   },
+   {
+      id: 'task8',
       name: '유저 테스트',
       start: '2025-06-15',
       end: '2025-06-25',
       progress: 10,
       dependencies: '',
+      type: 'sub',
+      group: 'teamE',
+      style: 'blue',
       href: 'https://example.com/user-test',
    },
    {
-      id: 'task9--teamF--blue',
+      id: 'task9',
       name: '배포 준비',
       start: '2025-06-26',
       end: '2025-06-27',
       progress: 0,
-      dependencies: 'task8--teamE--blue',
+      dependencies: 'task8',
+      type: 'sub',
+      group: 'teamE',
+      style: 'blue',
       href: 'https://example.com/deploy',
    },
    {
-      id: 'task10--teamF--blue',
+      id: 'task10',
       name: '런칭',
       start: '2025-06-28',
       end: '2025-06-29',
       progress: 0,
-      dependencies: 'task9--teamF--blue',
+      dependencies: 'task9',
+      type: 'sub',
+      group: 'teamE',
+      style: 'blue',
       href: 'https://example.com/launch',
    },
 ];
@@ -138,7 +230,6 @@ function filterTasksByDate(tasks, startDate, endDate) {
 }
 const filteredTasks = filterTasksByDate(tasks, StartChartDate, EndChartDate);
 
-console.log(filteredTasks);
 let firstLoad = true;
 
 // const gantt = new Gantt("#gantt", tasks);
@@ -186,7 +277,7 @@ const gantt = new Gantt('#gantt', filteredTasks, {
    padding: 18, // 작업표시줄 주변의 패딩(정수) || 18
    step: 24, // 시간 간격 (분 단위)
    snap_at: '1d', // 크기 조정이나 드래그 시 특정 간격으로 작업을 스냅(모든 간격) || 1d
-   lines: 'horixontal', // 표시할 격자선 (none, vertical, horixontal, both) || both
+   lines: 'none', // 표시할 격자선 (none, vertical, horixontal, both) || both
    // 기타
    ignore: [], // 특정 날짜 구간을 렌더링에서 제외하는 옵션. 즉, 특정 날들을 회색배경(비작업시간)처럼 보이게 만드는 역할. weekend 또는 문자열이나 날짜 객체의 배열( weekend배열에도 존재할 수 있음). (주말무시 : ['weekend']), ( 특정 날짜 무시 : ['2025-06-17', new Date('2025-06-18')]), ( 둘 다 무시 : ['weekend', '2025-06-25', new Date('2025-06-30')]) || []
    holidays: { 'var(--g-weekend-highlight-color)': 'weekend' }, // 타임라인 휴일 강조 표시, 휴일 유형에 CSS 색상을 매핑하는 객체 ('weekend', 문자열, 날짜객체, 형식 객체 {date: ..., label: ...}) || { 'var(--g-weekend-highlight-color)': 'weekend' }
@@ -233,11 +324,11 @@ const gantt = new Gantt('#gantt', filteredTasks, {
       console.log(`${task.name} 진행률 변경: ${progress}%`);
    },
    on_view_change: (mode) => {
-      console.log(`현재 보기 모드: ${mode.name}`);
-      console.log(mode);
+      //console.log(`현재 보기 모드: ${mode.name}`);
+      //console.log(mode);
       if (firstLoad) {
          firstLoad = false;
-         console.log('🎯 최초 로드 시 처리 실행');
+         //console.log('🎯 최초 로드 시 처리 실행');
          // const clone = document.getElementById("list_wrap_clone").cloneNode();
 
          // clone.querySelector(".list-Name").innerHTML =
@@ -323,16 +414,80 @@ const gantt = new Gantt('#gantt', filteredTasks, {
     gantt.refresh(filteredTasks); // 필터링한 작업만 보여주기
 */
 
-/* data-id 쪼개기 */
+/* task 속성 부여 */
 function dataIdSlice() {
    filteredTasks.forEach((task) => {
-      const [idName, groupName, styleName] = task.id.split('--');
-
       const thisTask = document.querySelector(`[data-id="${task.id}"]`);
 
-      thisTask.id = idName;
-      thisTask.dataset.group = groupName;
-      thisTask.classList.add(styleName);
+      thisTask.dataset.group = task.group;
+      thisTask.classList.add(task.style);
+
+      if (task.type == 'main') {
+         thisTask.classList.add('main-task');
+      } else if (task.type == 'sub') {
+         thisTask.classList.add('sub-task');
+      }
+   });
+}
+/* main-task rect 모양 바꾸기 */
+function clipMainBarsWithRibbonShape() {
+   const svg = document.querySelector('#gantt svg');
+   if (!svg) return;
+
+   // <defs>가 없으면 생성
+   let defs = svg.querySelector('defs');
+   if (!defs) {
+      defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+      svg.prepend(defs);
+   }
+
+   const mainBars = document.querySelectorAll('.bar-wrapper.main-task');
+
+   mainBars.forEach((wrapper, idx) => {
+      const rect = wrapper.querySelector('rect.bar');
+      const progress = wrapper.querySelector('rect.bar-progress');
+      if (!rect) return;
+
+      const x = parseFloat(rect.getAttribute('x'));
+      const y = parseFloat(rect.getAttribute('y'));
+      const width = parseFloat(rect.getAttribute('width'));
+      const height = parseFloat(rect.getAttribute('height'));
+      const wing = 6; // 삼각형 날개 깊이
+
+      const clipId = `clip-ribbon-${idx}`;
+
+      // 기존 클립 제거 (중복 방지)
+      const existing = document.getElementById(clipId);
+      if (existing) existing.remove();
+
+      // <clipPath> 정의
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const clipPath = document.createElementNS(svgNS, 'clipPath');
+      clipPath.setAttribute('id', clipId);
+      clipPath.setAttribute('clipPathUnits', 'userSpaceOnUse'); // 전체 좌표 기준
+
+      // 리본 모양 path
+      const path = document.createElementNS(svgNS, 'path');
+      const d = `
+         M${x},${y}
+         H${x + width}
+         V${y + height}
+         L${x + width - wing},${y + height * 0.6}
+         H${x + wing}
+         L${x},${y + height}
+         V${y}
+         Z
+      `.replace(/\s+/g, ' ');
+
+      path.setAttribute('d', d);
+      clipPath.appendChild(path);
+      defs.appendChild(clipPath);
+
+      // 실제 막대에 clip-path 적용
+      rect.setAttribute('clip-path', `url(#${clipId})`);
+      if (progress) {
+         progress.setAttribute('clip-path', `url(#${clipId})`);
+      }
    });
 }
 
@@ -350,7 +505,8 @@ function showRange(ganttInstance, startDate, endDate) {
    dataIdSlice();
 }
 showRange(gantt, StartChartDate, EndChartDate);
-let resultTasks;
+clipMainBarsWithRibbonShape();
+
 function resultNowTasks() {
    const navLIst = document.getElementById('gantt-nav-list');
    filteredTasks.forEach((task) => {
@@ -360,10 +516,16 @@ function resultNowTasks() {
 
       clone.dataset.taskId = task.id;
       clone.querySelector('.list-Name').innerHTML = task.name;
-      clone.querySelector('.list-Start').innerHTML = task.start;
       //clone.querySelector(".list-Duration").textContent = task.name;
-      clone.querySelector('.list-Status').innerHTML = task.progress;
 
+      if (task.type == 'main') clone.dataset.type = 'main';
+      if (task.type == 'sub') {
+         clone.dataset.type = 'sub';
+         clone.dataset.group = task.group;
+
+         clone.querySelector('.list-Start').innerHTML = task.start;
+         clone.querySelector('.list-Status').innerHTML = task.progress;
+      }
       navLIst.appendChild(clone);
    });
 }
@@ -381,3 +543,175 @@ resultNowTasks();
 // 화면에 보이는 task 목록	gantt.bars.map(bar => bar.task)
 // 각 bar의 위치/크기 접근	bar.$bar.getX(), getY(), getWidth() 등
 // 전체 task 목록	gantt.tasks
+
+/* 토글 기능 넣기 */
+// ✅ 리스트 토글 및 Gantt 바 위치 재정렬 전체 통합 코드
+const GANTT_ROW_HEIGHT = 38; // 행 높이 기준값
+
+function updateBarGroupPositions() {
+   const groupHidden = new Set();
+
+   document
+      .querySelectorAll('.list_wrap[data-type="main"]')
+      .forEach((mainItem) => {
+         const groupName = mainItem.dataset.taskId;
+         const isHidden = mainItem.classList.contains('hidden');
+         if (isHidden) groupHidden.add(groupName);
+      });
+
+   const wrappers = Array.from(document.querySelectorAll('.bar-wrapper'));
+
+   // group별로 y 좌표 누적 증가값 계산을 위한 맵
+   let yOffsets = new Map();
+   let groupRowCounts = new Map();
+
+   // 각 그룹의 sub-task 개수 세기
+   wrappers.forEach((wrapper) => {
+      const group = wrapper.dataset.group;
+      const taskId = wrapper.dataset.id;
+      const task = gantt.tasks.find((t) => t.id === taskId);
+      const isMain = task?.type === 'main';
+
+      if (!isMain && !groupRowCounts.has(group)) {
+         const count = wrappers.filter(
+            (w) =>
+               w.dataset.group === group &&
+               gantt.tasks.find((t) => t.id === w.dataset.id)?.type === 'sub'
+         ).length;
+         groupRowCounts.set(group, count);
+      }
+   });
+
+   // group 순서에 따라 줄 수만큼 yOffset 누적
+   let totalOffset = 0;
+   const groupOrder = [...new Set(wrappers.map((w) => w.dataset.group))];
+   groupOrder.forEach((group) => {
+      yOffsets.set(group, totalOffset);
+      if (groupHidden.has(group)) {
+         totalOffset -= (groupRowCounts.get(group) || 0) * GANTT_ROW_HEIGHT;
+      }
+   });
+
+   wrappers.forEach((wrapper) => {
+      const group = wrapper.dataset.group;
+      const taskId = wrapper.dataset.id;
+      const task = gantt.tasks.find((t) => t.id === taskId);
+      const isMain = task?.type === 'main';
+
+      const barGroup = wrapper.querySelector('.bar-group');
+      if (!barGroup) return;
+
+      const transform = barGroup.getAttribute('transform');
+      const match = transform?.match(/translate\(([^,]+),\s*([^)]+)\)/);
+      const x = match ? match[1] : 0;
+      const originalY = match ? parseFloat(match[2]) : 0;
+
+      // 초기 Y값을 저장 (최초 1회만)
+      if (!barGroup.dataset.originalY) {
+         barGroup.dataset.originalY = originalY;
+      }
+
+      const baseY = parseFloat(barGroup.dataset.originalY);
+      const offset = yOffsets.get(group) || 0;
+
+      if (!isMain && groupHidden.has(group)) {
+         wrapper.style.display = 'none';
+      } else {
+         wrapper.style.display = 'block';
+         barGroup.setAttribute(
+            'transform',
+            `translate(${x}, ${baseY + offset})`
+         );
+      }
+   });
+
+   // 🔄 화살표 위치도 업데이트
+   const arrows = document.querySelectorAll('.arrow path');
+
+   arrows.forEach((arrow) => {
+      const fromId = arrow.dataset.from;
+      const toId = arrow.dataset.to;
+
+      const fromWrapper = document.querySelector(
+         `.bar-wrapper[data-id="${fromId}"]`
+      );
+      const toWrapper = document.querySelector(
+         `.bar-wrapper[data-id="${toId}"]`
+      );
+      if (!fromWrapper || !toWrapper) return;
+
+      const fromGroup = fromWrapper.dataset.group;
+      const toGroup = toWrapper.dataset.group;
+      const fromOffset = yOffsets.get(fromGroup) || 0;
+      const toOffset = yOffsets.get(toGroup) || 0;
+
+      if (groupHidden.has(fromGroup) || groupHidden.has(toGroup)) {
+         arrow.style.display = 'none';
+         return;
+      } else {
+         arrow.style.display = 'block';
+      }
+
+      if (!arrow.dataset.originalD) {
+         arrow.dataset.originalD = arrow.getAttribute('d');
+      }
+
+      const originalD = arrow.dataset.originalD;
+      const commands = originalD.trim().split(/\s*(?=[MLVla])\s*/);
+      let lastLY = null;
+
+      const newD =
+         commands
+            .map((cmd) => {
+               const [command, ...rest] = cmd.trim().split(/\s+/);
+
+               if (command === 'M') {
+                  const [x, y] = rest.map(parseFloat);
+                  return `M ${x} ${y + fromOffset}`;
+               }
+
+               if (command === 'V') {
+                  const vY = parseFloat(rest[0]);
+                  return `V ${vY + fromOffset}`;
+               }
+
+               if (command === 'a') {
+                  return `a ${rest.join(' ')}`; // 🔁 그대로 유지
+               }
+
+               if (command === 'L') {
+                  const [x, y] = rest.map(parseFloat);
+                  lastLY = y + toOffset;
+                  return `L ${x} ${lastLY}`;
+               }
+
+               return null;
+            })
+            .filter(Boolean)
+            .join(' ') + ' m -3 -3 l 3 3 l -3 3';
+
+      arrow.setAttribute('d', newD);
+   });
+
+   clipMainBarsWithRibbonShape();
+}
+
+// ✅ 리스트 클릭 이벤트 핸들러 등록
+document
+   .querySelectorAll('.list_wrap[data-type="main"]')
+   .forEach((mainItem) => {
+      mainItem.addEventListener('click', () => {
+         const groupName = mainItem.dataset.taskId;
+         mainItem.classList.toggle('hidden');
+
+         document
+            .querySelectorAll(
+               `.list_wrap[data-group="${groupName}"]:not([data-type="main"])`
+            )
+            .forEach((el) => {
+               el.style.display = el.style.display === 'none' ? 'flex' : 'none';
+            });
+
+         updateBarGroupPositions();
+      });
+   });

@@ -5,7 +5,7 @@
    --g-tick-color-thick: #ededed; /* vertical border 일요일 옆 */
    --g-tick-color: #f3f3f3; /* vertical border */
    --g-actions-background: #f3f3f3; /* today 같은 버튼 배경 */
-   --g-border-color: #ebeff2; /* horixontal border */
+   --g-border-color: transparent; /* horixontal border / ebeff2*/
    --g-text-muted: #7c7c7c; /* lower text color 날짜 색상, (popup 일반 텍스트) */
    --g-text-light: #fff; /* lower text 중 오늘 날자 색상 */
    --g-text-dark: #171717; /* 이 외의 나머지 글자 색상(popup title 포함) */
